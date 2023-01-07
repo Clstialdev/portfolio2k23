@@ -219,7 +219,7 @@ const Home: NextPage = () => {
           </motion.div>
         </div>
 
-        {/* Header (desktop) */}
+        {/* Header (Desktop) */}
         <motion.header
           animate={{
             y: [-100, 0],
@@ -239,6 +239,56 @@ const Home: NextPage = () => {
           </div>
         </motion.header>
 
+        {/* BG Video MOBILE ONLY */}
+        <div className="absolute z-0 h-screen w-full sm:hidden">
+          {!landingLoop ? (
+            <video
+              autoPlay
+              muted
+              className="h-full"
+              ref={landingVideoRef as any}
+              src={"/videos/landingshotmobile.mp4"}
+              onEnded={() => {
+                setLandingLoop(true);
+              }}
+            >
+              your browser does not support the video tag.
+            </video>
+          ) : (
+            <div className="absolute top-0 right-0 left-0 h-[400px]">
+              {/* Bubble Image */}
+              <div className="absolute right-0 top-0 h-[20vh] w-[68vw]">
+                <Image
+                  src="/bubbles/cornerbubble.png"
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  className="object-contain"
+                />
+              </div>
+              {/* Scroll Down Text */}
+              <h4 className="mt-[59%] -ml-4 w-fit -rotate-90 text-sm font-medium uppercase text-white text-opacity-25">
+                <span className="mr-3 text-white text-opacity-25">{`<-`}</span>
+                Scroll Down
+              </h4>
+            </div>
+          )}
+        </div>
+
+        {/* Header (Mobile) */}
+        <header className="mt-16 flex w-screen items-center justify-between px-[9%] sm:hidden">
+          <div className="rounded-lg border-2 border-white border-opacity-20 bg-black bg-opacity-[0.15] px-[5px] py-2">
+            <h1 className="text-2xl text-white">{`{fh}`}</h1>
+          </div>
+
+          {/* hamburger menu */}
+          <div className="z-50 flex flex-col gap-[5px]">
+            {[1, 2, 3].map((key: number) => (
+              <div key={key} className="h-[3.35px] w-[28px] bg-white"></div>
+            ))}
+          </div>
+        </header>
+
         {/* Hero */}
         <motion.div
           transition={{ staggerChildren: 0.6 }}
@@ -246,7 +296,7 @@ const Home: NextPage = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="relative z-50 mt-[100px] flex h-[calc(100vh-100px)] w-full flex-col justify-center px-[5%]"
+          className="relative z-50 mt-[100px] flex h-[calc(100vh-100px)] w-full flex-col justify-center px-[7%] sm:px-[5%]"
         >
           {/*Hero text*/}
           <motion.div
@@ -255,11 +305,11 @@ const Home: NextPage = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="-mt-[140px] space-y-4 sm:flex sm:flex-col sm:items-center md:block sh:-mt-16"
+            className="space-y-2 sm:-mt-[140px] sm:flex sm:flex-col sm:items-center sm:space-y-4 md:block sh:-mt-16"
           >
             <motion.h1
               variants={itemVariant}
-              className="text-5xl font-bold sm:text-center md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
+              className="text-6xl font-black sm:text-center sm:font-bold md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
             >
               <span className="absolute -mt-10 -ml-4 xxl:-ml-2">
                 <Image
@@ -273,23 +323,29 @@ const Home: NextPage = () => {
             </motion.h1>
             <motion.h1
               variants={itemVariant}
-              className="text-5xl font-bold sm:text-center md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
+              className="hidden text-6xl font-black sm:block sm:text-center sm:font-bold md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
             >
-              Full Stack Dev{" "}
-              <span className="pl-2 font-bold sm:text-center md:text-left lg:text-4xl xxl:text-6xl">
+              Full Stack Dev,
+              <span className="pl-2 font-bold sm:text-center md:text-left lg:text-5xl xxl:text-6xl">
                 a
               </span>
-              ,
             </motion.h1>
             <motion.h1
               variants={itemVariant}
-              className="text-5xl font-bold sm:text-center md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
+              className="text-6xl font-black sm:hidden"
+            >
+              Developer,
+              <span className="pl-2 text-[40px] font-black">a</span>
+            </motion.h1>
+            <motion.h1
+              variants={itemVariant}
+              className="text-[35px] font-black sm:text-center sm:font-bold md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
             >
               ‘One Man Orchestra’
             </motion.h1>
             <motion.p
               variants={itemVariant}
-              className="w-[50%] sm:text-center md:text-left lg:w-[700px] xl:text-xl sh:text-lg xxl:w-[990px]"
+              className="w-full pt-2 font-semibold text-white text-opacity-60 sm:mt-0 sm:w-[50%] sm:text-center sm:font-normal sm:text-opacity-100 md:text-left lg:w-[700px] xl:text-xl sh:text-lg xxl:w-[990px]"
             >
               Hi, My name is Fateh. I work with people from all over the world
               to create tailor-made web applications and experiences, focusing
@@ -297,7 +353,7 @@ const Home: NextPage = () => {
             </motion.p>
             <motion.p
               variants={itemVariant}
-              className="text-lg"
+              className="text-base font-semibold text-white text-opacity-60 sm:text-lg sm:font-normal sm:text-opacity-100"
             >{`{Web developer , 3D Artist , UI/UX Designer};`}</motion.p>
           </motion.div>
 
