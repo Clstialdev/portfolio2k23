@@ -9,16 +9,21 @@ import Hero from "@src/components/Hero";
 import SelectedWorks from "@src/components/SelectedWorks";
 import About from "@src/components/About";
 import Loading from "@src/components/Loading";
+import dynamic from "next/dynamic";
+
+const DynamicHero = dynamic(() => import("@src/components/Hero"), {
+  loading: () => <h1>loading..</h1>,
+});
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
-  const [loaded, setLoaded] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setLoading(false);
     setTimeout(() => {
-      setLoaded(false);
-    }, 500);
+      setLoaded(true);
+    }, 1000);
   }, []);
 
   return (
@@ -34,7 +39,7 @@ const Home: NextPage = () => {
         id="main"
       >
         <AnimatePresence mode="wait">
-          {loaded ? (
+          {!loaded ? (
             <motion.div
               initial={{ y: -200, opacity: 0 }}
               animate={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
@@ -42,10 +47,11 @@ const Home: NextPage = () => {
               key={"loadingboy"}
             >
               <Loading loading={loading} />
+              {/* <Hero setLoaded={setLoaded} /> */}
             </motion.div>
           ) : (
             <>
-              <Hero />
+              <DynamicHero />
               <SelectedWorks />
               <About />
             </>
