@@ -3,13 +3,24 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
-import { motion, Variants } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import Hero from "@src/components/Hero";
 import SelectedWorks from "@src/components/SelectedWorks";
 import About from "@src/components/About";
+import Loading from "@src/components/Loading";
 
 const Home: NextPage = () => {
+  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+    setTimeout(() => {
+      setLoaded(false);
+    }, 500);
+  }, []);
+
   return (
     <>
       <Head>
@@ -22,9 +33,24 @@ const Home: NextPage = () => {
         className="relative min-h-screen w-screen overflow-x-hidden bg-black "
         id="main"
       >
-        <Hero />
-        <SelectedWorks />
-        <About />
+        <AnimatePresence mode="wait">
+          {loaded ? (
+            <motion.div
+              initial={{ y: -200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
+              exit={{ y: -200, opacity: 0, transition: { duration: 0.3 } }}
+              key={"loadingboy"}
+            >
+              <Loading loading={loading} />
+            </motion.div>
+          ) : (
+            <>
+              <Hero />
+              <SelectedWorks />
+              <About />
+            </>
+          )}
+        </AnimatePresence>
       </main>
     </>
   );
