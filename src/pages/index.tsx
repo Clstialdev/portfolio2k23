@@ -10,12 +10,9 @@ import Loading from "@src/components/Loading";
 import LoadVideos from "@src/components/LoadVideos";
 import dynamic from "next/dynamic";
 
-const DynamicComponentWithNoSSR = dynamic(
-  () => import("../components/LoadVideos"),
-  {
-    ssr: false,
-  }
-);
+const DynamicComponentWithNoSSR = dynamic(() => import("../components/Hero"), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
@@ -50,11 +47,16 @@ const Home: NextPage = () => {
               key={"loadingboy"}
             >
               <Loading loading={loading} />
-              <DynamicComponentWithNoSSR setLoading={setLoading} />
+              <div className="absolute opacity-0">
+                <DynamicComponentWithNoSSR
+                  setLoading={setLoading}
+                  loaded={loaded}
+                />
+              </div>
             </motion.div>
           ) : (
             <>
-              <Hero />
+              <Hero setLoading={setLoading} loaded={loaded} />
               <SelectedWorks />
               <About />
             </>

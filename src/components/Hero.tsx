@@ -1,11 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type NextPage } from "next";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+interface LoadingVideosProps {
+  setLoading: any;
+  loaded: boolean;
+}
+const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
+  const [finishedLoading, setFinishedLoading] = useState(0);
 
-const Hero: NextPage = () => {
+  useEffect(() => {
+    console.log("logged", finishedLoading);
+
+    if (finishedLoading === 2) {
+      setLoading(false);
+    }
+  }, [finishedLoading, setLoading]);
+
   const [landingLoop, setLandingLoop] = useState(false);
   const roundText = "ScrollDown * ScrollDown * ScrollDown *";
 
@@ -27,14 +40,16 @@ const Hero: NextPage = () => {
         ease: [0.65, 0, 0, 0.95],
       },
     },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        ease: [0.65, 0, 0, 0.95],
-        duration: 0.5,
-      },
-    },
+    animate: loaded
+      ? {
+          opacity: 1,
+          y: 0,
+          transition: {
+            ease: [0.65, 0, 0, 0.95],
+            duration: 0.5,
+          },
+        }
+      : {},
   };
 
   const mobileBlurVariant: Variants = {
@@ -79,6 +94,10 @@ const Hero: NextPage = () => {
       <div className="absolute top-[50px] left-0 right-0 z-0 hidden  h-[calc(100vh-100px)] items-center justify-center saturate-[1.4] md:flex">
         {!landingLoop ? (
           <video
+            onCanPlayThrough={() => {
+              setFinishedLoading((c) => c + 1);
+              console.log("test");
+            }}
             autoPlay
             muted
             className="h-full"
@@ -91,6 +110,10 @@ const Hero: NextPage = () => {
           </video>
         ) : (
           <video
+            onCanPlayThrough={() => {
+              setFinishedLoading((c) => c + 1);
+              console.log("test");
+            }}
             autoPlay
             muted
             loop
@@ -252,6 +275,10 @@ const Hero: NextPage = () => {
       <motion.div className="absolute z-0 h-screen w-full sm:hidden">
         {!landingLoop ? (
           <video
+            onCanPlayThrough={() => {
+              setFinishedLoading((c) => c + 1);
+              console.log("test");
+            }}
             autoPlay
             muted
             className="h-full"
