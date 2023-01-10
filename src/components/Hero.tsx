@@ -3,12 +3,12 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
+import ReactPlayer from "react-player/lazy";
 
 const Hero: NextPage = () => {
   const [landingLoop, setLandingLoop] = useState(false);
-  const landingVideoRef = useRef();
   const roundText = "ScrollDown * ScrollDown * ScrollDown *";
 
   const containerVariant: Variants = {
@@ -75,7 +75,6 @@ const Hero: NextPage = () => {
       behavior: "smooth",
     });
   };
-
   return (
     <>
       {/* BG Video and Stars (hidden on mobile) */}
@@ -85,8 +84,7 @@ const Hero: NextPage = () => {
             autoPlay
             muted
             className="h-full"
-            ref={landingVideoRef as any}
-            src={"/videos/landingshot.mp4"}
+            src={"videos/landingshot.mp4"}
             onEnded={() => {
               setLandingLoop(true);
             }}
@@ -99,7 +97,6 @@ const Hero: NextPage = () => {
             muted
             loop
             className="h-full"
-            ref={landingVideoRef as any}
             src={"/videos/landingloop.mp4"}
           >
             your browser does not support the video tag.
@@ -260,7 +257,6 @@ const Hero: NextPage = () => {
             autoPlay
             muted
             className="h-full"
-            ref={landingVideoRef as any}
             src={"/videos/landingshotmobile.mp4"}
             onEnded={() => {
               setLandingLoop(true);

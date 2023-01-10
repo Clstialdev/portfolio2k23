@@ -9,22 +9,27 @@ import Hero from "@src/components/Hero";
 import SelectedWorks from "@src/components/SelectedWorks";
 import About from "@src/components/About";
 import Loading from "@src/components/Loading";
+import LoadVideos from "@src/components/LoadVideos";
 import dynamic from "next/dynamic";
 
-const DynamicHero = dynamic(() => import("@src/components/Hero"), {
-  loading: () => <h1>loading..</h1>,
-});
+const DynamicComponentWithNoSSR = dynamic(
+  () => import("../components/LoadVideos"),
+  {
+    ssr: false,
+  }
+);
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setLoading(false);
-    setTimeout(() => {
-      setLoaded(true);
-    }, 1000);
-  }, []);
+    if (!loading) {
+      setTimeout(() => {
+        setLoaded(true);
+      }, 1000);
+    }
+  }, [loading]);
 
   return (
     <>
@@ -47,11 +52,11 @@ const Home: NextPage = () => {
               key={"loadingboy"}
             >
               <Loading loading={loading} />
-              {/* <Hero setLoaded={setLoaded} /> */}
+              <DynamicComponentWithNoSSR setLoading={setLoading} />
             </motion.div>
           ) : (
             <>
-              <DynamicHero />
+              <Hero />
               <SelectedWorks />
               <About />
             </>
