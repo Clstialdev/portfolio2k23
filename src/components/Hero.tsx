@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
-import { motion, Variants } from "framer-motion";
-import ReactPlayer from "react-player/lazy";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 const Hero: NextPage = () => {
   const [landingLoop, setLandingLoop] = useState(false);

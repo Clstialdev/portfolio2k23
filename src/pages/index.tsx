@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import Hero from "@src/components/Hero";
