@@ -2,8 +2,9 @@
 import { type NextPage } from "next";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import Header from "./UI/Header";
 interface LoadingVideosProps {
   setLoading: any;
   loaded: boolean;
@@ -78,7 +79,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
-    element && element.scrollIntoView();
+    element && element.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollTop = () => {
@@ -88,6 +89,18 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
       behavior: "smooth",
     });
   };
+
+  const [skillText, setSkillText] = useState([false, false, true]);
+  useEffect(() => {
+    if (loaded) {
+      setTimeout(() => {
+        const index = skillText.indexOf(true);
+        const array = [false, false, false];
+        array[(index + 1) % 3] = true;
+        setSkillText(array);
+      }, 6000);
+    }
+  }, [skillText, loaded]);
   return (
     <>
       {/* BG Video and Stars (hidden on mobile) */}
@@ -252,24 +265,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
       </div>
 
       {/* Header (Desktop) */}
-      <motion.header
-        className="fixed top-0 z-[999] hidden h-[100px] w-full items-center justify-between bg-black bg-opacity-50 px-[5%] backdrop-blur-lg sm:flex [&>*]:text-white"
-        animate={{
-          y: [-100, 0],
-          opacity: [0, 1],
-          transition: {
-            duration: 0.5,
-            ease: [0.65, 0, 0, 0.95],
-            delay: 2.2,
-          },
-        }}
-      >
-        <div className="text-4xl sh:text-3xl">{`{fh}`}</div>
-        <div className="flex gap-2 text-xl sh:text-lg">
-          <p>contact@fhstudio.com</p>
-          <p>/</p>
-        </div>
-      </motion.header>
+      <Header noMobile />
 
       {/* BG Video MOBILE ONLY */}
       <motion.div className="absolute z-0 h-screen w-full sm:hidden">
@@ -413,15 +409,62 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
             </span>
             Creative
           </motion.h1>
-          <motion.h1
-            variants={itemVariant}
-            className="hidden text-6xl font-black text-[#D9D5E5] sm:block sm:text-center sm:font-bold sm:text-white md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
-          >
-            Full Stack Dev,
-            <span className="pl-2 font-bold sm:text-center md:text-left lg:text-5xl xxl:text-6xl">
-              a
-            </span>
-          </motion.h1>
+          <AnimatePresence mode="wait">
+            {skillText[0] && (
+              <motion.h1
+                variants={itemVariant}
+                key={"skillText0"}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.3,
+                  },
+                }}
+                className="hidden text-6xl font-black text-[#D9D5E5] sm:block sm:text-center sm:font-bold sm:text-white md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
+              >
+                Full Stack Dev,
+                <span className="pl-2 font-bold sm:text-center md:text-left lg:text-5xl xxl:text-6xl">
+                  a
+                </span>
+              </motion.h1>
+            )}
+            {skillText[1] && (
+              <motion.h1
+                variants={itemVariant}
+                key={"skillText1"}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.3,
+                  },
+                }}
+                className="hidden text-6xl font-black text-[#D9D5E5] sm:block sm:text-center sm:font-bold sm:text-white md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
+              >
+                3D Artist,
+                <span className="pl-2 font-bold sm:text-center md:text-left lg:text-5xl xxl:text-6xl">
+                  a
+                </span>
+              </motion.h1>
+            )}
+            {skillText[2] && (
+              <motion.h1
+                variants={itemVariant}
+                key={"skillText2"}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.3,
+                  },
+                }}
+                className="hidden text-6xl font-black text-[#D9D5E5] sm:block sm:text-center sm:font-bold sm:text-white md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
+              >
+                UI/UX Designer,
+                <span className="pl-2 font-bold sm:text-center md:text-left lg:text-5xl xxl:text-6xl">
+                  a
+                </span>
+              </motion.h1>
+            )}
+          </AnimatePresence>
           <motion.h1
             variants={itemVariant}
             className="text-6xl font-black text-[#D9D5E5] sm:hidden sm:text-white"
@@ -462,7 +505,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
               rotate: "360deg",
               transition: { duration: 8, repeat: Infinity },
             }}
-            onClick={() => scrollTop()}
+            onClick={() => scrollTo("selected-works")}
           >
             {roundText.split("").map((char: string, i: number) => (
               <span
