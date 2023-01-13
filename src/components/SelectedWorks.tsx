@@ -10,7 +10,7 @@ const SelectedWorks: NextPage = () => {
   return (
     <>
       <div
-        className="-mt-10 flex min-h-screen w-screen flex-col overflow-hidden rounded px-[5%] sm:pt-28"
+        className="mt-12 flex min-h-screen w-screen flex-col overflow-hidden rounded px-[5%] sm:pt-28"
         id="selected-works"
       >
         <h1 className="text-4xl">Selected Works</h1>

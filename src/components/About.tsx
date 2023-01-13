@@ -8,8 +8,8 @@ import { motion, Variants } from "framer-motion";
 
 const About: NextPage = () => {
   return (
-    <>
-      <div className="-mt-6 flex w-screen flex-col px-[5%] pt-12 xl:min-h-screen xl:flex-row xl:justify-between xl:pt-28">
+    <div className=" bg-black">
+      <div className=" mb-24 mt-12 flex w-screen flex-col px-[5%] pt-12 xl:flex-row xl:justify-between xl:pt-28">
         {/* Text */}
         <div className="mt-16 w-full max-w-[900px] xl:w-1/2">
           <h1 className="text-4xl">About me</h1>
@@ -60,7 +60,7 @@ const About: NextPage = () => {
           </video>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

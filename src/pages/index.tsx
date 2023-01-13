@@ -9,6 +9,7 @@ import About from "@src/components/About";
 import Loading from "@src/components/Loading";
 import LoadVideos from "@src/components/LoadVideos";
 import dynamic from "next/dynamic";
+import Contact from "@src/components/Contact";
 
 const DynamicComponentWithNoSSR = dynamic(() => import("../components/Hero"), {
   ssr: false,
@@ -59,6 +60,7 @@ const Home: NextPage = () => {
               <Hero setLoading={setLoading} loaded={loaded} />
               <SelectedWorks />
               <About />
+              <Contact />
             </>
           )}
         </AnimatePresence>
