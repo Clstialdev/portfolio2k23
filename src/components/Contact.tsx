@@ -42,7 +42,9 @@ const Contact: NextPage = () => {
         style={{ y }}
         className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black px-[5%]"
       >
-        <p className="text-xs uppercase">Ready for your next project?</p>
+        <p className=" mb-8 text-[10px] uppercase md:mb-0 md:text-xs">
+          Ready for your next project?
+        </p>
         <motion.div
           onHoverStart={() => {
             if (!isAnimationPlaying) {
@@ -56,18 +58,18 @@ const Contact: NextPage = () => {
           }}
         >
           <Link href="mailto:fateh.hadjarsi@gmail.com">
-            <h1 className="gallient text-[300px]">{`Let's Talk`}</h1>
+            <h1 className="gallient my-12 text-6xl lg:text-[300px]">{`Let's Talk`}</h1>
           </Link>
           <motion.div
             animate={underscoreAnimationControl}
             onAnimationComplete={() => {
               setIsAnimationPlaying(false);
             }}
-            className="-mt-24 h-[1px] w-[0] bg-white"
+            className="-mt-24 h-[2px] w-[0] bg-white"
           ></motion.div>
         </motion.div>
 
-        <div className="absolute bottom-0 flex h-[100px] w-full justify-between px-[5%]">
+        <div className="absolute bottom-0 mb-12 flex h-[100px] w-full flex-col items-center justify-center gap-4 px-[5%] md:mb-0 md:flex-row md:justify-between md:gap-0">
           <p>© 2023</p>
           <Link href="https://www.linkedin.com/in/fateh-h-227098245/">
             <div className="h-fit w-fit rounded border-[1px] border-white bg-black py-2 px-4 duration-150 hover:cursor-pointer hover:bg-white hover:text-black">
