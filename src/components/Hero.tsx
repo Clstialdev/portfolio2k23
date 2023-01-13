@@ -375,11 +375,11 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
         </div>
 
         {/* hamburger menu */}
-        <div className="z-50 flex flex-col gap-[5px]">
+        {/* <div className="z-50 flex flex-col gap-[5px]">
           {[1, 2, 3].map((key: number) => (
             <div key={key} className="h-[3.35px] w-[28px] bg-white"></div>
           ))}
-        </div>
+        </div> */}
       </motion.header>
 
       {/* Hero */}

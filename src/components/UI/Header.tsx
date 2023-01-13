@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type NextPage } from "next";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface HeaderProps {
   noMobile?: boolean;
@@ -47,11 +48,13 @@ const Header: NextPage<HeaderProps> = ({ noMobile = false }) => {
           </div>
 
           {/* hamburger menu */}
-          <div className="z-50 flex flex-col gap-[5px]">
-            {[1, 2, 3].map((key: number) => (
-              <div key={key} className="h-[3.35px] w-[28px] bg-white"></div>
-            ))}
-          </div>
+          <Link href="/">
+            <div className="z-50 flex flex-col gap-[5px]">
+              {[1, 2, 3].map((key: number) => (
+                <div key={key} className="h-[3.35px] w-[28px] bg-white"></div>
+              ))}
+            </div>
+          </Link>
         </motion.header>
       )}
     </>
