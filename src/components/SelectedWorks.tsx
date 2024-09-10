@@ -60,7 +60,7 @@ const SelectedWorks: NextPage = () => {
             total={9}
             year={2021}
             title={"Cut My Head Off"}
-            image={"/showcase/cmho/car.png"}
+            image={"/showcase/cmho/car.webp"}
             tag="3D Animation"
             href="/showcase/cmho"
           />
