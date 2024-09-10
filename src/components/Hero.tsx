@@ -104,7 +104,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
   return (
     <>
       {/* BG Video and Stars (hidden on mobile) */}
-      <div className="absolute top-[50px] left-0 right-0 z-0 hidden  h-[calc(100vh-100px)] items-center justify-center saturate-[1.4] md:flex">
+      <div className="absolute left-0 right-0 top-[50px] z-0 hidden  h-[calc(100vh-100px)] items-center justify-center saturate-[1.4] md:flex">
         {!landingLoop ? (
           <video
             onCanPlayThrough={() => {
@@ -247,7 +247,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
             <Image src="/ornaments/star2.svg" height={60} width={60} alt="" />
           </motion.div>
           <motion.div
-            className="absolute mt-[130px] -ml-[30px]"
+            className="absolute -ml-[30px] mt-[130px]"
             animate={{
               x: [0, -5, 10, -5, 0],
               y: [0, 20, 15, 0, 20, 0],
@@ -286,7 +286,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
             your browser does not support the video tag.
           </video>
         ) : (
-          <div className="absolute top-0 right-0 left-0 h-[400px]">
+          <div className="absolute left-0 right-0 top-0 h-[400px]">
             {/* Bubble Image */}
             <motion.div
               variants={mobileBlurVariant}
@@ -351,7 +351,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
           </motion.div>
         </div>
         {/* Scroll Down Text */}
-        <h4 className="mt-[59%] -ml-4 w-fit -rotate-90 text-sm font-medium uppercase text-white text-opacity-25">
+        <h4 className="-ml-4 mt-[59%] w-fit -rotate-90 text-sm font-medium uppercase text-white text-opacity-25">
           <span className="mr-3 text-white text-opacity-25">{`<-`}</span>
           Scroll Down
         </h4>
@@ -404,7 +404,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
             variants={itemVariant}
             className="text-6xl font-black text-[#D9D5E5] sm:text-center sm:font-bold sm:text-white md:text-left lg:text-6xl sh:text-5xl xxl:text-8xl"
           >
-            <span className="absolute -mt-10 -ml-4 opacity-[0.75] sm:opacity-100 xxl:-ml-2">
+            <span className="absolute -ml-4 -mt-10 opacity-[0.75] sm:opacity-100 xxl:-ml-2">
               <Image src="/ornaments/crown.svg" height={60} width={60} alt="" />
             </span>
             Creative
@@ -482,7 +482,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
           </motion.h1>
           <motion.p
             variants={itemVariant}
-            className="w-full pt-2 text-[15px] font-semibold text-[#69959F] text-opacity-100 sm:mt-0 sm:w-[50%] sm:text-center sm:font-normal sm:text-white sm:text-opacity-60 sm:text-opacity-100 md:text-left lg:w-[700px] xl:text-xl sh:text-lg xxl:w-[990px]"
+            className="w-full pt-2 text-[15px] font-semibold text-[#69959F] text-opacity-100 sm:mt-0 sm:w-[50%] sm:text-center sm:font-normal sm:text-white sm:text-opacity-100 sm:text-opacity-60 md:text-left lg:w-[700px] xl:text-xl sh:text-lg xxl:w-[990px]"
           >
             Hi, My name is Fateh. I work with people from all over the world to
             create tailor-made web applications and experiences, focusing on
@@ -518,7 +518,7 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
             ))}
           </motion.div>
           <Image src="/ornaments/stamp.svg" width={110} height={110} alt="" />
-          <div className="absolute top-1/2 left-1/2 -z-10 h-[380px] w-[380px] translate-y-[-50%] translate-x-[-50%]">
+          <div className="absolute left-1/2 top-1/2 -z-10 h-[380px] w-[380px] translate-x-[-50%] translate-y-[-50%]">
             <Image
               src="/blurs/roundblur2.png"
               alt=""
@@ -529,14 +529,14 @@ const Hero: NextPage<LoadingVideosProps> = ({ setLoading, loaded }) => {
             />
           </div>
 
-          <div className="absolute top-[200px] left-1/2 -z-10 h-[800px] w-[800px] translate-y-[-50%] translate-x-[-50%] ">
+          <div className="pointer-events-none absolute left-1/2 top-[200px] -z-10 h-[800px] w-[800px] translate-x-[-50%] translate-y-[-50%] ">
             <Image
               src="/blurs/blur2.png"
               alt=""
               unoptimized
               width={1000}
               height={1000}
-              className="rotate-12 overflow-hidden object-contain"
+              className="pointer-events-none rotate-12 overflow-hidden object-contain"
             />
           </div>
         </motion.div>

@@ -18,15 +18,45 @@ const SelectedWorks: NextPage = () => {
           <ShowcaseItem
             index={1}
             total={9}
+            year={2022}
+            title={"DOMI Online"}
+            image={"/showcase/domi.webp"}
+            tag="Web Dev"
+            href="https://domionline.io/"
+          />
+
+          <ShowcaseItem
+            index={2}
+            total={9}
+            year={2021}
+            title={"Ronin Realms"}
+            image={"/showcase/ronin.webp"}
+            tag="Web Dev (WIP)"
+            href="https://ronnin-landing-page.vercel.app/"
+          />
+
+          <ShowcaseItem
+            index={3}
+            total={9}
+            year={2021}
+            title={"Ocean View Games"}
+            image={"/showcase/oceanview.webp"}
+            tag="UI/UX Design"
+            href="https://oceanviewgames.co.uk"
+          />
+
+          <ShowcaseItem
+            index={4}
+            total={9}
             year={2023}
             title={"Iridescence"}
-            image={"/content/curtains.jpg"}
+            image={"/showcase/iridescent/curtains.webp"}
             tag="3D Art"
             href="/showcase/iridescence"
           />
 
           <ShowcaseItem
-            index={2}
+            index={5}
             total={9}
             year={2021}
             title={"Cut My Head Off"}
@@ -35,45 +65,27 @@ const SelectedWorks: NextPage = () => {
             href="/showcase/cmho"
           />
           <ShowcaseItem
-            index={3}
+            index={6}
             total={9}
             year={2021}
             title={"Eve & The Serpent"}
-            image={"/showcase/eve.jpg"}
+            image={"/showcase/eve.webp"}
             tag="3D Art"
             href="/showcase/eve"
           />
 
           <ShowcaseItem
-            index={4}
-            total={9}
-            year={2021}
-            title={"Halll AI Art"}
-            image={"/showcase/halll.jpg"}
-            tag="UI/UX Design"
-            href="https://www.figma.com/file/Gz0G1LmtqPc5lK6SDGnZH0/Hall-art?node-id=0%3A1&t=FXeKnWsAIQ7VEaZY-1"
-          />
-
-          <ShowcaseItem
-            index={5}
+            index={7}
             total={9}
             year={2021}
             title={"Jet Life Stakepools"}
-            image={"/showcase/jetlife.jpg"}
+            image={"/showcase/jetlife.webp"}
             tag="Web Dev"
             href="https://www.jetlifestaking.org"
           />
+
           <ShowcaseItem
-            index={6}
-            total={9}
-            year={2021}
-            title={"Tim Ohlsen Portfolio"}
-            image={"/showcase/tim.jpg"}
-            tag="UI/UX Design"
-            href="https://www.figma.com/file/WtHE05I9gb85clEOEtSPlK/Tim-Ohlsen?node-id=0%3A1&t=yYaCP8AEvy9UNMpe-1"
-          />
-          <ShowcaseItem
-            index={7}
+            index={8}
             total={9}
             year={2021}
             title={"War9a App"}
@@ -81,22 +93,14 @@ const SelectedWorks: NextPage = () => {
             tag="Web Dev"
             href="https://war9a.com/"
           />
-          <ShowcaseItem
-            index={8}
-            total={9}
-            year={2022}
-            title={"DOMI Online"}
-            image={"/showcase/domi.jpg"}
-            tag="Web Dev"
-            href="https://domionline.io/"
-          />
+
           <ShowcaseItem
             index={9}
             total={9}
             year={2021}
             title={"Blacklist Protocol"}
-            image={"/showcase/blacklist.jpg"}
-            tag="Web Dev (in progress)"
+            image={"/showcase/blacklist.webp"}
+            tag="Web Dev (WIP)"
             href="https://blacklist-pro.vercel.app/"
           />
         </div>
@@ -146,7 +150,7 @@ const ShowcaseItem: NextPage<showcaseItemProps> = ({
             <h1>
               0{index}-0{total}
             </h1>
-            <h1 className="w-fit rounded-lg border-[1px] border-white py-2 px-4">
+            <h1 className="w-fit rounded-lg border-[1px] border-white px-4 py-2">
               {tag}
             </h1>
           </div>

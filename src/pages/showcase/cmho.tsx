@@ -36,7 +36,7 @@ const cmho: NextPage = () => {
                 height={4000}
                 width={4000}
                 className="h-full w-full object-cover"
-                src="/showcase/cmho/car.png"
+                src="/showcase/cmho/car.webp"
                 alt=""
                 unoptimized
               />

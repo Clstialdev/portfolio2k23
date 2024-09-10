@@ -36,7 +36,7 @@ const Iridescence: NextPage = () => {
                 height={4000}
                 width={4000}
                 className="h-full w-full object-cover"
-                src="/showcase/iridescent/curtains.png"
+                src="/showcase/iridescent/curtains.webp"
                 alt=""
                 unoptimized
               />
