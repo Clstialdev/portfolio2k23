@@ -20,7 +20,7 @@ const eve: NextPage = () => {
           <h3 className="text-2xl">03-09</h3>
           <h1 className="gallient my-4 text-8xl">Eve & The Serpent</h1>
           <div className="flex justify-between text-xl">
-            <p>{`The world reflects it's light on us`}</p>
+            <p>{`Collection of art pieces made for a music video`}</p>
             <div>
               <p className="text-center text-sm text-white text-opacity-70">
                 Tag
@@ -92,6 +92,7 @@ const eve: NextPage = () => {
             muted
             className="max-h-[calc(100vh-100px)] w-full"
             loop
+            controls
             src={"/showcase/eve/evevideo.mp4"}
           >
             your browser does not support the video tag.

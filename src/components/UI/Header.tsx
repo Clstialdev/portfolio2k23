@@ -25,7 +25,7 @@ const Header: NextPage<HeaderProps> = ({ noMobile = false }) => {
       >
         <div className="text-4xl sh:text-3xl">{`{fh}`}</div>
         <div className="flex gap-2 text-xl sh:text-lg">
-          <p>contact@fhstudio.dev</p>
+          <Link href="mailto:contact@fhstudio.dev">contact@fhstudio.dev</Link>
           <p>/</p>
         </div>
       </motion.header>

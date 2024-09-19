@@ -28,7 +28,7 @@ const SelectedWorks: NextPage = () => {
           <ShowcaseItem
             index={2}
             total={9}
-            year={2021}
+            year={2024}
             title={"Ronin Realms"}
             image={"/showcase/ronin.webp"}
             tag="Web Dev (WIP)"
@@ -38,7 +38,7 @@ const SelectedWorks: NextPage = () => {
           <ShowcaseItem
             index={3}
             total={9}
-            year={2021}
+            year={2023}
             title={"Ocean View Games"}
             image={"/showcase/oceanview.webp"}
             tag="UI/UX Design"
@@ -131,7 +131,7 @@ const ShowcaseItem: NextPage<showcaseItemProps> = ({
   href = "/",
 }) => {
   return (
-    <Link href={href}>
+    <Link href={href} target="_blank">
       <div className="group relative h-[400px] w-full hover:cursor-pointer sm:h-[600px]">
         <div className="absolute h-full w-full">
           <Image

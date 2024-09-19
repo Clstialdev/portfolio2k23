@@ -20,7 +20,7 @@ const cmho: NextPage = () => {
           <h3 className="text-2xl">02-09</h3>
           <h1 className="gallient my-4 text-8xl">Cut My Head Off</h1>
           <div className="flex justify-between text-xl">
-            <p>{`The world reflects it's light on us`}</p>
+            <p>{`Visuals for a music video`}</p>
             <div>
               <p className="text-center text-sm text-white text-opacity-70">
                 Tag
@@ -47,7 +47,7 @@ const cmho: NextPage = () => {
 
           <div className="mt-8 grid grid-cols-1 xl:grid-cols-2 xxl:grid-cols-3">
             {/* Grid Image */}
-            <div className=" relative h-[400px] w-full sm:h-[600px]">
+            <div className=" relative w-full">
               <Image
                 height={1000}
                 width={1000}
@@ -56,7 +56,7 @@ const cmho: NextPage = () => {
                 alt=""
               />
             </div>
-            <div className=" relative h-[400px] w-full sm:h-[600px]">
+            <div className=" relative w-full">
               <Image
                 height={1000}
                 width={1000}
@@ -65,7 +65,7 @@ const cmho: NextPage = () => {
                 alt=""
               />
             </div>
-            <div className=" relative h-[400px] w-full sm:h-[600px]">
+            <div className=" relative w-full">
               <Image
                 height={1000}
                 width={1000}
@@ -74,7 +74,7 @@ const cmho: NextPage = () => {
                 alt=""
               />
             </div>
-            <div className=" relative h-[400px] w-full sm:h-[600px]">
+            <div className=" relative w-full">
               <Image
                 height={1000}
                 width={1000}
@@ -83,7 +83,7 @@ const cmho: NextPage = () => {
                 alt=""
               />
             </div>
-            <div className=" relative h-[400px] w-full sm:h-[600px]">
+            <div className=" relative w-full">
               <Image
                 height={1000}
                 width={1000}
@@ -92,7 +92,7 @@ const cmho: NextPage = () => {
                 alt=""
               />
             </div>
-            <div className=" relative h-[400px] w-full sm:h-[600px]">
+            <div className=" relative w-full">
               <Image
                 height={1000}
                 width={1000}
@@ -110,6 +110,7 @@ const cmho: NextPage = () => {
             muted
             className="max-h-[calc(100vh-100px)] w-full"
             loop
+            controls
             src={"/showcase/cmho/CBR3.mp4"}
           >
             your browser does not support the video tag.

@@ -71,8 +71,11 @@ const Contact: NextPage = () => {
 
         <div className="absolute bottom-0 mb-12 flex h-[100px] w-full flex-col items-center justify-center gap-4 px-[5%] md:mb-0 md:flex-row md:justify-between md:gap-0">
           <p>© 2023</p>
-          <Link href="https://www.linkedin.com/in/fateh-h-227098245/">
-            <div className="h-fit w-fit rounded border-[1px] border-white bg-black py-2 px-4 duration-150 hover:cursor-pointer hover:bg-white hover:text-black">
+          <Link
+            href="https://www.linkedin.com/in/fateh-h-227098245/"
+            target="_blank"
+          >
+            <div className="h-fit w-fit rounded border-[1px] border-white bg-black px-4 py-2 duration-150 hover:cursor-pointer hover:bg-white hover:text-black">
               LinkedIn
             </div>
           </Link>
