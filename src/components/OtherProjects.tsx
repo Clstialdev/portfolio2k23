@@ -137,7 +137,7 @@ const OtherProjects: NextPage = () => {
       >
         <h1 className="text-4xl">Other Projects</h1>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-4 xxl:grid-cols-2">
           {projects.map((project, i) => (
             <Project key={i} project={project} />
           ))}
@@ -151,7 +151,7 @@ export default OtherProjects;
 
 function Project({ project }: { project: Project }) {
   return (
-    <div className="flex justify-between rounded-lg border-[1px] border-white/20 px-4 py-4 pb-8 xxxl:pb-4">
+    <div className="flex h-full flex-col-reverse justify-between rounded-lg border-[1px] border-white/20 px-4 py-4 pb-6 md:flex-row xxxl:pb-4">
       {/* Left side */}
       <div>
         <Link href={project.articleLink} target="_blank" className="group">
@@ -165,7 +165,9 @@ function Project({ project }: { project: Project }) {
           </div>
 
           {/* Description */}
-          <p className="py-3 text-sm text-white/70">{project.description}</p>
+          <p className="max-w-[500px] py-3 text-sm text-white/70">
+            {project.description}
+          </p>
         </Link>
 
         {/* Tags */}
@@ -183,7 +185,7 @@ function Project({ project }: { project: Project }) {
             <Link
               href={link.href}
               key={i}
-              className=" rounded border-[1px] border-white/20 p-2"
+              className="rounded border-[1px] border-white/20 p-2"
               target="_blank"
             >
               {link.icon}
@@ -192,14 +194,18 @@ function Project({ project }: { project: Project }) {
         </div>
       </div>
       {/* Right Side (Image) */}
-      <Link href={project.articleLink} target="_blank" className="group">
-        <div className="aspect-video h-full overflow-clip rounded border-white/20 duration-200 group-hover:border-[1px]">
+      <Link
+        href={project.articleLink}
+        target="_blank"
+        className="group flex h-full items-center pb-4 md:max-w-[40%] md:pb-0 "
+      >
+        <div className="aspect-video h-full w-full overflow-clip  rounded border-white/20 duration-200 group-hover:border-[1px] md:max-h-[180px]">
           <Image
             src={project.image}
             width={1920 / 4}
             height={1080 / 4}
             alt=""
-            className="h-full object-cover duration-200 group-hover:scale-110"
+            className="h-full w-full object-cover duration-200 group-hover:scale-110 md:w-auto"
           />
         </div>
       </Link>

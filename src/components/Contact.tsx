@@ -58,7 +58,7 @@ const Contact: NextPage = () => {
           }}
         >
           <Link href="mailto:fateh.hadjarsi@gmail.com">
-            <h1 className="gallient my-12 text-6xl lg:text-[300px]">{`Let's Talk`}</h1>
+            <h1 className="gallient my-12 text-[80px] sm:text-[100px] md:text-[170px] lg:text-[200px] xxl:text-[300px]">{`Let's Talk`}</h1>
           </Link>
           <motion.div
             animate={underscoreAnimationControl}
