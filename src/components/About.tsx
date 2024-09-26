@@ -14,7 +14,7 @@ const About: NextPage = () => {
         <div className="mt-16 w-full max-w-[900px] xl:w-1/2">
           <h1 className="text-4xl">About me</h1>
           <p className="mt-4 text-base text-white text-opacity-70 xl:text-lg xl:leading-8 xl:tracking-wide">
-            {`I am a passionate web developer, creative creator and artist with 6
+            {`I am a passionate web developer, creative creator and artist with 4
           years of experience in Software Development and User Interface
           Engineering. My expertise lies in the design, development, and
           delivery of software systems. I am equipped with a diverse and
